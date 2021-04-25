@@ -1,3 +1,3 @@
 # nodejs-jest
-Api em Nodejs, utilizando Express para controlar as rotas.
-Jest para testar as funcionalidades.
+- API em Nodejs, utilizando Express para futuramente controlar as rotas.
+- Utilizando Jest para os Unit Tests
