@@ -1,4 +1,4 @@
-const index = require('./index')
+const index = require('../index')
 
 test('Aplicar desconto', () => {
     const result = index.aplicarDesconto(10,5);
