@@ -1,6 +1,8 @@
-function aplicarDesconto(valor, desconto){
-    if(desconto > valor) return 0;
-    return valor - desconto;
- }
+const express = require("express");
 
- module.exports = { aplicarDesconto }
+app = express();
+app.use(express.json());
+
+app.use("/", require("./src/controller/controller"));
+
+app.listen(3001);
