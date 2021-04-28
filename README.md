@@ -1,3 +1,4 @@
 # nodejs-jest
-- API em Nodejs, utilizando Express para futuramente controlar as rotas.
-- Utilizando Jest para os Unit Tests
+- Express para controle de rotas.
+- Postgres com sequelize para armazenamento de dados
+- Jest com Sqlite para ambiente de testes
