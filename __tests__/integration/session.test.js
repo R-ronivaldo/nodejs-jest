@@ -50,4 +50,15 @@ describe("Authenticate", () => {
 
         expect(response.body).toHaveProperty('token'); // falta terminar essa funcionalidade no models User
     })
+
+    it("should be able to acess private routes when authenticate", async () => {
+        const user = await User.create({name: 'junior', email: 'junior@gmail.com', password: '123'})
+
+        const response = await request(app)
+            .get('/Dashboard')
+            .set("Authorization", `Bearer ${user.generateToken()}`);
+        
+            expect(response.status).toBe(200);
+    })
+
 });
