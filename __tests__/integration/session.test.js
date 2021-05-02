@@ -63,14 +63,23 @@ describe("Authenticate", () => {
         expect(response.body).toHaveProperty('token'); // falta terminar essa funcionalidade no models User
     })
 
-    it("should be able to acess private routes when authenticate", async () => {
+    it("should be not able to acess private routes when have token invalid", async () => {
         const user = await User.create({name: 'junior', email: 'junior@gmail.com', password: '123'})
 
         const response = await request(app)
             .get('/Dashboard')
-            .set("Authorization", `Bearer ${user.generateToken()}`);
+            .set("Authorization", `Bearer askfasdçgkaçsldkgflaçskdfakdlfkasdfkasdfldskflçasdfsdf`);
         
             expect(response.status).toBe(200);
+    })
+
+    it("should be not able to acess private routes when have not token", async () => {
+        const user = await User.create({name: 'junior', email: 'junior@gmail.com', password: '123'})
+
+        const response = await request(app)
+            .get('/Dashboard')
+        
+            expect(response.status).toBe(401);
     })
 
 });
