@@ -25,7 +25,19 @@ describe("Authenticate", () => {
         expect(response.status).toBe(200);
     })
 
-    it("should not authenticate with invalid credentials", async () => {
+    it("should not authenticate with user not exist", async () => {
+
+        const response = await request(app)
+            .post('/Sessions')
+            .send({
+                email: 'invalduser@gmail.com',
+                password: '123'
+            })
+
+        expect(response.status).toBe(401);
+    })
+
+    it("should not authenticate with invalid password", async () => {
         const user = await User.create({name: 'junior', email: 'junior@gmail.com', password: '123'})
 
         const response = await request(app)
